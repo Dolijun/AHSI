@@ -1,0 +1,15 @@
+./run.sh
+./temp_run.sh
+.vscode
+save
+save_disk
+ckpts
+datasets
+.idea
+ckpt
+*.pyc
+models/ops/*.egg-info
+scripts/train.log
+.idea/*
+*.pyc
+*/__pycache__
