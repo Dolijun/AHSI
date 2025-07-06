@@ -18,12 +18,14 @@
 
 ## 设置环境
 1. 使用 requirements.txt 安装依赖
+
 推荐使用 requirements.txt 文件安装项目所需的依赖
 ```bash
 pip install -r requirements.txt
 ```
 
 2. 打包的 Python 虚拟环境
+
 为了更好的复现论文结果，我们提供了打包好的 [Python 虚拟环境](https://drive.google.com/open?id=1xx3yBd4_ive1y9BrrLmSWc1XUMzj7qlk&usp=drive_fs) on Linux
 
 ## 运行
@@ -32,7 +34,7 @@ pip install -r requirements.txt
 # 首先需要配置变量：
 # PROJ_DIR 项目路径
 # PYTHON python 路径
-sh sed/AHSI/scripts/run.sh
+sh scripts/run.sh
 ```
 
 ## 算法框架
