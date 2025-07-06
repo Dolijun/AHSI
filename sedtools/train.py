@@ -15,8 +15,6 @@ from argparse import ArgumentParser
 
 import time
 
-from utils.messageSender import feishu_bot
-
 from utils.loss import criterion_all
 from torch.utils.data import DataLoader
 from runtime_utils import freeze_batchnorm

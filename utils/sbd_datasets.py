@@ -7,7 +7,6 @@ import os.path
 import numpy as np
 import torch
 import scipy.io as scio
-from models.modules import Instances
 
 
 class DataList(Dataset):

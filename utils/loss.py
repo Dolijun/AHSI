@@ -1,8 +1,6 @@
 # coding:utf-8
 import torch
 import numpy as np
-from .criterion import SetCriterion
-from .matcher import HungarianMatcher
 
 class criterion_all:
     def __init__(self, args, losses_train, losses_val, set_criterion_losses):
@@ -79,23 +77,6 @@ class criterion_all:
             weights = torch.Tensor(np.zeros([1, args.nclasses, args.crop_size, args.crop_size])).cuda()
             criterion = torch.nn.DataParallel(SBDAutoCrossEntropyLoss(weights)).cuda()
             self.loss_map['loss_sed_city_val'] = criterion
-
-        if "loss_set_criterion" in self.losses:
-            mask_matcher = HungarianMatcher(
-                cost_class=self.weight_dict["loss_ce"],
-                cost_sed=self.weight_dict["loss_sed"],
-                cost_dice_sed=self.weight_dict['loss_dice_sed']
-            )
-            loss_set_criterion = SetCriterion(
-                args.num_iters,
-                num_classes=args.nclasses,
-                matcher=mask_matcher,
-                weight_dict=self.weight_dict,
-                no_obj_ce=args.no_object_weight,
-                no_obj_bce=args.no_object_bce_weight,
-                losses=set_criterion_losses,
-            )
-            self.loss_map["loss_set_criterion"] = loss_set_criterion
 
     def train(self):
         self.state = "train"
